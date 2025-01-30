@@ -12,9 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-edition = "2023";
+syntax = "proto3";
 
-option features.field_presence = IMPLICIT;
 option go_package = "google.golang.org/grpc/examples/route_guide/routeguide";
 option java_multiple_files = true;
 option java_package = "io.grpc.examples.routeguide";
@@ -39,7 +38,7 @@ service RouteGuide {
   // repeated field), as the rectangle may cover a large area and contain a
   // huge number of features.
   rpc ListFeatures(Rectangle) returns (stream Feature) {}
-
+  
   // A client-to-server streaming RPC.
   //
   // Accepts a stream of Points on a route being traversed, returning a
