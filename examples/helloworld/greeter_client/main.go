@@ -31,7 +31,7 @@ import (
 )
 
 const (
-	defaultName = "world"
+	defaultName = "Hasan"
 )
 
 var (
@@ -55,6 +55,12 @@ func main() {
 	r, err := c.SayHello(ctx, &pb.HelloRequest{Name: *name})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
+	}
+	log.Printf("Greeting: %s", r.GetMessage())
+
+	r, err = c.SayHelloAgain(context.Background(), &pb.HelloRequest{Name: *name})
+	if err != nil {
+		log.Fatalf("could not greet again: %v", err)
 	}
 	log.Printf("Greeting: %s", r.GetMessage())
 }
